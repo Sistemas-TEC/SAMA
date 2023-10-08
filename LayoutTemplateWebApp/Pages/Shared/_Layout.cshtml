@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LayoutTemplateWebApp</title>
+    <title>@ViewData["Title"]SAMA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
                     <a class="navbar-brand" asp-area="" asp-page="/Index">
                         @* //This could be the link to the inicial app page *@
                         <i class="bi bi-mortarboard-fill"></i>
-                        LayoutTemplateWebApp
+                        SAMA
                     </a>
                 </div>
                
@@ -28,6 +28,9 @@
                         var option2IsActive = Context.Request.Path.Value.Contains("/Option2");
                         var option3IsActive = Context.Request.Path.Value.Contains("/Option3");
                         var option4IsActive = Context.Request.Path.Value.Contains("/AhijadoSama/Perfil");
+                        var formularioIsActive = Context.Request.Path.Value.Contains("/AhijadoSAMA/Formulario");
+                        var perfilMentorIsActive = Context.Request.Path.Value.Contains("/MentorSAMA/PerfilMentor");
+                        var rolGeneratorIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/RolGenerator");
                     }
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,10 +38,13 @@
                             <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/Option1">Option1</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Option2">Option2</a>
+                            <a class="nav-link @(formularioIsActive ? "active" : "")" asp-area="" asp-page="/AhijadoSAMA/Formulario">Formulario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/Option3">Option3</a>
+                            <a class="nav-link @(perfilMentorIsActive ? "active" : "")" asp-area="" asp-page="/MentorSAMA/PerfilMentor">Perfil Mentor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(rolGeneratorIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/RolGenerator">Asignar Rol</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @(option4IsActive ? "active" : "")" asp-area="" asp-page="/AhijadoSAMA/Perfil">PerfilAhijado</a>
@@ -55,17 +61,13 @@
 
     <div class="page d-flex flex-row bg-grayContrast">
         <aside class="site-bar bg-white">
-            <ul class="d-flex flex-column gap-3 px-0 py-2">
-                <li class="py-2 inline-nav-item ">
-                    <i class="bi bi-people-fill"></i>
-                    Instalaciones
-                </li>
-                <li class="py-2 bg-footer inline-nav-item-nd">
-                    <i class="bi bi-people-fill"></i>
-                    Instalaciones
-                </li>
-            </ul>
-           
+            <div class="d-flex flex-column gap-3 px-0 py-2 text-center">
+                <h3 class="py-2">¿Qué es IntegraTEC?</h3>
+                <p class="py-2">Es un programa institucional de mentoría con el fin de facilitar el proceso de ajuste a la vida universitaria de la población de primer ingreso.</p>
+
+                <h3 class="py-2">¿Qué es SAMA?</h3>
+                <p class="py-2">El Sistema de Asignación Mentor-Ahijado es un sistema de software diseñado para facilitar el emparejamiento de mentores y ahijados con respecto a carrera, ubicación geográfica y gustos.</p>
+            </div>
         </aside>
         <div class="content-page w-100">
             <main role="main" class="pb-3">
@@ -76,9 +78,12 @@
         </div>
     </div>
 
-    <footer class="border-top footer text-muted ">
-        <div class="container">
-            Correo: example@itcr.ac.cr Teléfono: 2020-2020 
+    <footer class="border-top footer text-muted">
+        <div class="container d-flex justify-content-end align-items-center">
+            <i class="bi bi-facebook me-2"></i>
+            <span>IntegraTEC</span>
+            <i class="bi bi-instagram ms-3 me-2"></i>
+            <span>Integratec_itcr</span>
         </div>
     </footer>
 
