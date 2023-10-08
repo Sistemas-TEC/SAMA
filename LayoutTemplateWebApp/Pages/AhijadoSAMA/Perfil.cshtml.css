@@ -1,0 +1,12 @@
+﻿body {
+}
+.card {
+    position:fixed;
+    align-items: baseline;
+    margin-left: 404px;
+    margin-top: 65px;
+    background-color: var(--colorMainTrans);
+}
+.card-title{
+    margin-top: 32px;
+}
