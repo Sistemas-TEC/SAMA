@@ -32,6 +32,14 @@ bld/
 *.testlog
 *.coverage
 *.vscode-coverage
+*.vsidx
+*.vsidx
+.vs/SAMA/FileContentIndex/1dd44a5a-82c6-40cd-b03e-a3ed6a777f53.vsidx
+*.vsidx
+*.vsidx
+.vs/SAMA/v17/.wsuo
+*.sqlite
+*.vsidx
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/

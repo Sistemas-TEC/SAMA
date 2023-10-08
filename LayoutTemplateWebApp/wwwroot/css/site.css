@@ -1,8 +1,8 @@
 
 :root {
-    --colorMain: #00A38B;
-    --colorMainRGB: 0, 163, 139;
-    --colorMainTrans: rgba(0, 163, 139, 0.1);
+    --colorMain: #065a9a;
+    --colorMainRGB: 6, 90, 154;
+    --colorMainTrans: rgba(6, 90, 154, 0.1);
     --greyFooter: #F1F1F1;
     --whiteContranst: #F6F6F6;
     --greyFooterRGB: 241,241,241;
