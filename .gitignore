@@ -32,3 +32,6 @@ bld/
 *.testlog
 *.coverage
 *.vscode-coverage
+*.lock
+*.sqlite
+*.vsidx
