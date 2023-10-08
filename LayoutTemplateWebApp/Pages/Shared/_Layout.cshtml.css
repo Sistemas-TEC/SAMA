@@ -25,6 +25,9 @@ for details on configuring this project to bundle and minify static web assets. 
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-color: var(--colorMainTrans);
+    width: 238px;
+    max-width: 238px;
+    min-width: 238px;
 }
 
 .content-page {

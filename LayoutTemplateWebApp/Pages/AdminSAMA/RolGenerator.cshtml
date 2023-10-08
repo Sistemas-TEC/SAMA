@@ -1,0 +1,45 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.AdminSAMA.RolGeneratorModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Asignación de roles</h1>
+
+        <!-- Formulario centrado -->
+        <div class="d-flex flex-column align-items-center">
+            <!-- Correo -->
+            <div class="mb-3 w-50">
+                <label for="correo" class="form-label">Correo:</label>
+                <input type="email" class="form-control" id="correo" placeholder="correo@ejemplo.com">
+            </div>
+
+            <!-- Rol -->
+            <div class="mb-3 w-50">
+                <label for="rol" class="form-label">Rol:</label>
+                <select class="form-select" id="rol">
+                    <option selected>Selecciona un rol</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Mentor</option>
+                    <option value="3">Ahijado</option>
+                </select>
+            </div>
+
+            <!-- Nombre completo -->
+            <div class="mb-4 w-50">
+                <label for="nombre" class="form-label">Nombre completo:</label>
+                <input type="text" readonly class="form-control-plaintext" id="nombre" value="Nombre del Usuario">
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn btn-success">Asignar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
