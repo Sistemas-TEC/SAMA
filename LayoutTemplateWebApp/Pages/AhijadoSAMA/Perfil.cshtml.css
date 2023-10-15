@@ -1,12 +1,27 @@
-﻿body {
-}
-.card {
-    position:fixed;
+﻿.card {
+    /* position:absolute;
     align-items: baseline;
     margin-left: 404px;
-    margin-top: 65px;
+    margin-top: 65px;*/
     background-color: var(--colorMainTrans);
+
 }
-.card-title{
+.card-body{
     margin-top: 32px;
+}
+.card.body.h5{
+    margin-top: 32 px;
+}
+.header{
+   /*position: absolute;
+   align-items: center;
+   background-color: rebeccapurple;*/
+   
+}
+.body{
+
+}
+.contenedor{
+    display:inline-block;
+    margin-left:10px;
 }

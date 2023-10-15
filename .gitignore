@@ -159,3 +159,8 @@ src/.vs/config/applicationhost.config
 
 # JetBrains Rider's auto generated files
 .idea/
+.vs/SAMA/v17/.wsuo
+.vs/slnx.sqlite
+LayoutTemplateWebApp/.vs/LayoutTemplateWebApp/DesignTimeBuild/.dtbcache.v2
+LayoutTemplateWebApp/.vs/ProjectEvaluation/layouttemplatewebapp.metadata.v7.bin
+LayoutTemplateWebApp/.vs/ProjectEvaluation/layouttemplatewebapp.projects.v7.bin
