@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LayoutTemplateWebApp"
+    "\\LayoutTemplateWebApp",
+    "\\LayoutTemplateWebApp\\Model",
+    "\\LayoutTemplateWebApp\\Pages",
+    "\\LayoutTemplateWebApp\\Pages\\AdminSAMA",
+    "\\LayoutTemplateWebApp\\Pages\\AhijadoSAMA",
+    "\\LayoutTemplateWebApp\\Pages\\MentorSAMA",
+    "\\LayoutTemplateWebApp\\Pages\\Shared"
   ],
+  "SelectedNode": "\\LayoutTemplateWebApp\\Pages\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }
