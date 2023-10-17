@@ -1,0 +1,9 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.AdminSAMA.ListaAhijadoModel
+@{
+
+    var userRole = @Model.role;
+    Layout = userRole == "2569" ? "_AdminLayout" : "_ErrorLayout";
+
+    if (userRole != "2569") Response.Redirect("/ErrorPage");
+}
