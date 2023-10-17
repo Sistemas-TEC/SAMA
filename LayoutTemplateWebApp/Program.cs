@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient(); // Register HttpClient
+
+builder.Services.AddSession(); // Add session services
+builder.Services.AddMemoryCache(); // Add memory cache services
 
 var app = builder.Build();
 
@@ -13,6 +21,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession(); 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

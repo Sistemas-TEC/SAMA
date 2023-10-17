@@ -1,6 +1,10 @@
 ﻿@page
 @model LayoutTemplateWebApp.Pages.MentorSAMA.PerfilMentorModel
 @{
+    var userRole = @Model.role;
+    Layout = userRole == "8888" ? "_MentorLayout" : "_ErrorLayout";
+
+    if (userRole != "888") Response.Redirect("/ErrorPage");
 }
 <!DOCTYPE html>
 <html lang="en">
