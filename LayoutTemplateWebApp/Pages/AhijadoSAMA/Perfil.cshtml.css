@@ -1,10 +1,9 @@
 ﻿.card {
-    position:absolute;
+    position: absolute;
     align-items: baseline;
-    margin-left: 404px;
     margin-top: 95px;
+    margin-left: 404px;
     background-color: var(--colorMainTrans);
-
 }
 .card-body{
     margin-top: 32px;
@@ -19,9 +18,9 @@
 }
 .body{
 }
-.contenedor{
-    display:inline-block;
-    margin-left:10px;
+.contenedor {
+    display: inline-block;
+    
 }
 
 .xy-center {

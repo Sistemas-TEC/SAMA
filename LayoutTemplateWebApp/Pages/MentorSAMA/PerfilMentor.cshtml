@@ -1,8 +1,13 @@
 ﻿@page
-@model LayoutTemplateWebApp.Pages.AhijadoSAMA.IndexModel
+@model LayoutTemplateWebApp.Pages.MentorSAMA.PerfilMentorModel
 @{
-    Layout = "_AhijadoLayout";
+
+    var userRole = @Model.role;
+    Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
+
+    if (userRole != "7415") Response.Redirect("/ErrorPage");
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +24,7 @@
     <div class="contenedor">
         <div class="header">
             <h1 class="Titulo">¡Bienvenido al sistema de Asignación Mentor-Ahijado!</h1>
-            <h6 class="textoMentor">Su mentor es:</h6>
+            <h6 class="textoMentor">Sus ahijados son:</h6>
         </div>
         <div class="card" style="width: 304px; height:524px;">
             <div class="card-body">

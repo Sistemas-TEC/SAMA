@@ -2,14 +2,14 @@ using LayoutTemplateWebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LayoutTemplateWebApp.Pages.MentorSAMA
+namespace LayoutTemplateWebApp.Pages.AdminSAMA
 {
-    public class PerfilMentorModel : PageModel
+    public class ListaAdminModel : PageModel
     {
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
 
-        public PerfilMentorModel(IHttpClientFactory clientFactory)
+        public ListaAdminModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
@@ -23,5 +23,6 @@ namespace LayoutTemplateWebApp.Pages.MentorSAMA
             role = HttpContext.Session.GetString("role");
 
         }
+
     }
 }

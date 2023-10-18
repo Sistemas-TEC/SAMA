@@ -16,10 +16,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-colorMainTrans">
             <div class="container-fluid align-middle">
                 <div class="align-middle">
-                    <a class="navbar-brand" asp-area="" asp-page="/Index">
-                        @* //This could be the link to the inicial app page *@
-                        <i class="bi bi-mortarboard-fill"></i>
-                        
+                    <a id="mainIcon" class="navbar-brand" asp-area="" asp-page="http://sistema-tec-web-app.somee.com/" aria-label="Inicio - SAMA">
+                        <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
                         SAMA
                     </a>
                 </div>
@@ -28,6 +26,7 @@
                     @{
                         var listaMentorIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/ListaMentor");
                         var listaAhijadoIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/ListaAhijado");
+                        var listaAdminIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/ListaAdmin");
                         var AsignacionesIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/Asignaciones");
                         var rolGeneratorIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/RolGenerator");
                     }
@@ -38,6 +37,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @(listaAhijadoIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/ListaAhijado">Lista Ahijados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(listaAdminIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/ListaAdmin">Lista Admin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @(AsignacionesIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/Asignaciones">Asignaciones</a>

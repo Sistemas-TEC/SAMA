@@ -34,6 +34,7 @@
 }
 
 
+
 html {
     font-size: 14px;
     height: 100%;
@@ -211,6 +212,7 @@ img {
         background-color: black !important;
         border: 1px solid #d3d3d3 !important;
     }
+
 
 .icon-button {
     background: none; /* Removes default background */
