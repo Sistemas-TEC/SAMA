@@ -1,6 +1,7 @@
 using LayoutTemplateWebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Primitives;
 
 namespace LayoutTemplateWebApp.Pages.AdminSAMA
 {
@@ -8,6 +9,7 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
     {
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
+        public string Email { get; set; }
 
         public ListaMentorModel(IHttpClientFactory clientFactory)
         {
@@ -19,8 +21,9 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 
         public void OnGet()
         {
-
+            
             role = HttpContext.Session.GetString("role");
+            Console.WriteLine(role);
 
         }
     }

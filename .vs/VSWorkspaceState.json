@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LayoutTemplateWebApp"
+    "\\LayoutTemplateWebApp",
+    "\\LayoutTemplateWebApp\\Data",
+    "\\LayoutTemplateWebApp\\Model"
   ],
   "SelectedNode": "\\LayoutTemplateWebApp\\LayoutTemplateWebApp.sln",
   "PreviewInSolutionExplorer": false
