@@ -4,7 +4,6 @@ namespace LayoutTemplateWebApp.Model
 {
     public class UserAPIModel
     {
-
         [JsonPropertyName("email")]
         public string Email { get; set; }
 
