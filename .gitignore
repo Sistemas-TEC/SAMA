@@ -167,3 +167,10 @@ src/.vs/config/applicationhost.config
 LayoutTemplateWebApp/.vs/LayoutTemplateWebApp/DesignTimeBuild/.dtbcache.v2
 LayoutTemplateWebApp/.vs/ProjectEvaluation/layouttemplatewebapp.metadata.v7.bin
 LayoutTemplateWebApp/.vs/ProjectEvaluation/layouttemplatewebapp.projects.v7.bin
+*.v2
+.vs/SAMA/v17/.wsuo
+*.sqlite
+*.v2
+*.v2
+*.bin
+*.bin
