@@ -1,3 +1,4 @@
+using LayoutTemplateWebApp.Data;
 using LayoutTemplateWebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,24 +8,26 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 {
     public class ListaMentorModel : PageModel
     {
-        private readonly IHttpClientFactory _clientFactory;
-        public string role { get; set; }
-        public string Email { get; set; }
+        public readonly IHttpClientFactory _clientFactory;
+        public readonly ApplicationDBContext _dbContext;
 
-        public ListaMentorModel(IHttpClientFactory clientFactory)
-        {
-            _clientFactory = clientFactory;
-        }
-
-        public List<UserAPIModel> PersonList { get; set; }
         public string RawJsonData { get; set; }
 
+        public List<UserAPIModel> PersonList { get; set; }
+        public IEnumerable<Campus> campusDB { get; set; }
+
+        public string role { get; set; }
+
+        public ListaMentorModel(IHttpClientFactory clientFactory, ApplicationDBContext db)
+        {
+            _clientFactory = clientFactory;
+            _dbContext = db;
+        }
         public void OnGet()
         {
-            
             role = HttpContext.Session.GetString("role");
-            Console.WriteLine(role);
-
+            //campusDB = _dbContext.Campus.ToList();
+            Page();
         }
     }
 }

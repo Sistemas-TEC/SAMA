@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("ConnectionSAMA")));
+builder.Configuration.GetConnectionString("ConecctionSAMA")));
 builder.Services.AddHttpClient(); // Register HttpClient
 
 builder.Services.AddSession(); // Add session services
