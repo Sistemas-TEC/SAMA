@@ -2,10 +2,7 @@
 @model LayoutTemplateWebApp.Pages.AhijadoSAMA.FormularioModel
 @{
 
-    var userRole = @Model.role;
-    Layout = userRole == "7415" ? "_AhijadoLayout" : "_ErrorLayout";
-
-    if (userRole != "7415") Response.Redirect("/ErrorPage");
+    Layout = "_AhijadoLayout";
 }
 <!DOCTYPE html>
 <html lang="en">

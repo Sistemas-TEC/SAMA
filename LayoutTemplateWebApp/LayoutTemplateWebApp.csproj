@@ -4,17 +4,32 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>4238fe77-5cab-4ce5-b282-8739134ef439</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
+=======
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+>>>>>>> danibrach
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+<<<<<<< HEAD
+=======
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+>>>>>>> danibrach
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    <PackageReference Include="System.Text.Json" Version="6.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\AdminSAMA\" />
+    <Folder Include="wwwroot\js\AhijadoSAMA\" />
+    <Folder Include="wwwroot\js\MentorSAMA\" />
   </ItemGroup>
 
 </Project>

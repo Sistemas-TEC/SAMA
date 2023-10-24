@@ -7,3 +7,57 @@
 
     if (userRole != "2569") Response.Redirect("/ErrorPage");
 }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Mentores Registrados:</h1>
+        <div class="table-responsive px-4 py-3">
+            <table class="table table-bordered table-stripped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Carrera</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Residencia</th>
+                        <th scope="col">Gustos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">@HttpContext.Session.GetString("name")</th>
+                        <td>@HttpContext.Session.GetString("lastName") @HttpContext.Session.GetString("lastName2")</td>
+                        <td>@Model.campusDB.First().campusName</td>
+                        <td>@HttpContext.Session.GetString("email")</td>
+                        <td>San Jose, San Jose, Hospital</td>
+                        <td>Musica, Helado</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mario</th>
+                        <td>Otto</td>
+                        <td>Ingenieria en Computacion</td>
+                        <td>mo@estudiantec.cr</td>
+                        <td>San Jose, San Jose, Hospital</td>
+                        <td>Musica, Helado</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ana</th>
+                        <td>Maria Polo</td>
+                        <td>Ingenieria en Derecho</td>
+                        <td>amp@estudiantec.cr</td>
+                        <td>San Jose, Moravia, La Isla</td>
+                        <td>Musica, Leer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
+

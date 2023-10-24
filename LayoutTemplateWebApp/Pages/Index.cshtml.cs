@@ -43,11 +43,15 @@ namespace LayoutTemplateWebApp.Pages
                 // Now make the asynchronous call to the external API
                 else if (HttpContext.Session.GetString("role") == "7415")
                 {
-                    Response.Redirect("/AhijadoSAMA/Perfil");
+                    Response.Redirect("/MentorSAMA/FormularioMentor");
                 }
                 else if (HttpContext.Session.GetString("role") == "2569")
                 {
-                    Response.Redirect("/AdminSAMA/RolGenerator");
+                    Response.Redirect("/AdminSAMA/ListaMentor");
+                }
+                else
+                {
+                    Response.Redirect("/AhijadoSAMA/Perfil");
                 }
 
 
@@ -87,11 +91,11 @@ namespace LayoutTemplateWebApp.Pages
                                 }
                                 else if (User.ApplicationRoles[i].Id == 10)
                                 {
-                                    HttpContext.Session.SetString("role", "7415"); //Ahijado
+                                    HttpContext.Session.SetString("role", "8888"); //Ahijado
                                 }
                                 else if (User.ApplicationRoles[i].Id == 11)
                                 {
-                                    HttpContext.Session.SetString("role", "8888"); //Mentor
+                                    HttpContext.Session.SetString("role", "7415"); //Mentor
                                 }
 
                             }
@@ -117,15 +121,15 @@ namespace LayoutTemplateWebApp.Pages
             // Now make the asynchronous call to the external API
             if (HttpContext.Session.GetString("role") == "7415")
             {
-                Response.Redirect("/AhijadoSAMA/Perfil");
+                Response.Redirect("/MentorSAMA/FormularioMentor");
             }
             else if (HttpContext.Session.GetString("role") == "2569")
             {
-                Response.Redirect("/AdminSAMA/RolGenerator");
+                Response.Redirect("/AdminSAMA/ListaMentor");
             }
             else
             {
-                Response.Redirect("/ErrorPage");
+                Response.Redirect("/AhijadoSAMA/Perfil");
             }
 
         }

@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LayoutTemplateWebApp.Pages.MentorSAMA
 {
-    public class PerfilMentorModel : PageModel
+    public class FormularioMentorModel : PageModel
     {
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
 
-        public PerfilMentorModel(IHttpClientFactory clientFactory)
+        public FormularioMentorModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }

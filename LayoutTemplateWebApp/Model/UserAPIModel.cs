@@ -1,10 +1,19 @@
+<<<<<<< HEAD
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+=======
 ﻿using System.Text.Json.Serialization;
 using System.Collections.Generic;
+>>>>>>> danibrach
 
 namespace LayoutTemplateWebApp.Model
 {
     public class UserAPIModel
     {
+<<<<<<< HEAD
+        [Key]
+=======
+>>>>>>> danibrach
         [JsonPropertyName("email")]
         public string Email { get; set; }
 
