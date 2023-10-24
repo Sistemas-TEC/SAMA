@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using LayoutTemplateWebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +9,13 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient(); // Register HttpClient
 
+
 builder.Services.AddSession(); // Add session services
 builder.Services.AddMemoryCache(); // Add memory cache services
 
+
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("ConnectionSAMA")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

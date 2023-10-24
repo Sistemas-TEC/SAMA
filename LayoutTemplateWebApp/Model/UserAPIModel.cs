@@ -1,10 +1,10 @@
 ﻿using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace LayoutTemplateWebApp.Model
 {
     public class UserAPIModel
     {
-
         [JsonPropertyName("email")]
         public string Email { get; set; }
 
@@ -30,10 +30,10 @@ namespace LayoutTemplateWebApp.Model
         public Student Student { get; set; }
 
         [JsonPropertyName("departments")]
-        public List<string> Departments { get; set; } // Assuming Department is a list of string
+        public List<Object> Departments { get; set; } // Assuming Department is a list of string
 
         [JsonPropertyName("schools")]
-        public List<string> Schools { get; set; }     // Assuming School is a list of string
+        public List<Object> Schools { get; set; }     // Assuming School is a list of string
 
         [JsonPropertyName("applicationRoles")]
         public List<ApplicationRole> ApplicationRoles { get; set; }
