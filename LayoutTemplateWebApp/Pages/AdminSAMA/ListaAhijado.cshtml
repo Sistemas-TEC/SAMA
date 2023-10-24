@@ -7,6 +7,7 @@
 
     if (userRole != "2569") Response.Redirect("/ErrorPage");
 }
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,3 +52,43 @@
 </body>
 
 </html>
+=======
+
+@section Scripts
+    {
+    <script src="@Url.Content("~/js/Admin/GestionSolicitudes.js")"></script>
+}
+
+<section class="container px-5 py-3">
+    <h3 style="margin-bottom: 2rem;">Lista de Personas</h3>
+    <table class="table" aria-label="Tabla de nombres de personas">
+        <pre>@Model.RawJsonData</pre>
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.PersonList != null && Model.PersonList.Any())
+            {
+                foreach (var person in Model.PersonList)
+                {
+                    <tr>
+                        <td>@person.PersonName</td>
+                        <td>@person.FirstLastName</td>
+                        <td>@person.Email</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">No persons found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+>>>>>>> danibrach
