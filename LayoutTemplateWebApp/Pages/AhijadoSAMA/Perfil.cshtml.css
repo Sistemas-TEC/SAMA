@@ -9,8 +9,9 @@
     margin-top: 32px;
 }
 .card.body.h5{
-    margin-top: 32 px;
-
+    margin-top: 32px;
+}
+.card-info{
 }
 .header{
    position: absolute;

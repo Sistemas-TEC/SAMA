@@ -3,7 +3,9 @@
     "",
     "\\LayoutTemplateWebApp",
     "\\LayoutTemplateWebApp\\Data",
-    "\\LayoutTemplateWebApp\\Model"
+    "\\LayoutTemplateWebApp\\Model",
+    "\\LayoutTemplateWebApp\\Pages",
+    "\\LayoutTemplateWebApp\\Pages\\AdminSAMA"
   ],
   "SelectedNode": "\\LayoutTemplateWebApp\\LayoutTemplateWebApp.sln",
   "PreviewInSolutionExplorer": false

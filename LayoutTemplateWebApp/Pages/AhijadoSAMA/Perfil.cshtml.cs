@@ -1,3 +1,4 @@
+using LayoutTemplateWebApp.Data;
 using LayoutTemplateWebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,14 +9,13 @@ namespace LayoutTemplateWebApp.Pages.AhijadoSAMA
     {
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
+        public List<UserAPIModel> PersonList { get; set; }
+        public string RawJsonData { get; set; }
 
         public IndexModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
-
-        public List<UserAPIModel> PersonList { get; set; }
-        public string RawJsonData { get; set; }
 
         public void OnGet()
         {
