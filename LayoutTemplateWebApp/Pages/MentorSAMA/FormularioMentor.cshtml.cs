@@ -10,6 +10,7 @@ namespace LayoutTemplateWebApp.Pages.MentorSAMA
         public string role { get; set; }
         public List<UserAPIModel> PersonList { get; set; }
         public string RawJsonData { get; set; }
+        
 
         public FormularioMentorModel(IHttpClientFactory clientFactory)
         {
@@ -18,9 +19,7 @@ namespace LayoutTemplateWebApp.Pages.MentorSAMA
 
         public void OnGet()
         {
-
             role = HttpContext.Session.GetString("role");
-
-        }
+    }
     }
 }

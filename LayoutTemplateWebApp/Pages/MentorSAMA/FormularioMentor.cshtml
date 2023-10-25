@@ -5,7 +5,137 @@
     Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
 
     if (userRole != "7415") Response.Redirect("/ErrorPage");
+
 }
+@{
+    List<string> provincias = new List<string>
+        {
+            "San Jose",
+            "Alajuela",
+            "Cartago",
+            "Heredia",
+            "Guanacaste",
+            "Puntarenas",
+            "Limon"
+        };
+
+    Dictionary<string, List<string>> diccCantones = new Dictionary<string, List<string>>
+    {
+        { "San Jose", new List<string>
+            {
+                "San Jose",
+                "Escazu",
+                "Desamparados",
+                "Puriscal",
+                "Tarrazu",
+                "Aserri",
+                "Mora",
+                "Goicoechea",
+                "Santa Ana",
+                "Alajuelita",
+                "Vazquez de Coronado",
+                "Acosta",
+                "Tibas",
+                "Moravia",
+                "Montes de Oca",
+                "Turrubares",
+                "Dota",
+                "Curridabat",
+                "Perez Zeledon",
+                "Leon Cortes"
+            }
+        },
+        {"Alajuela",new List<string>
+            {
+                "Alajuela",
+                "San Ramon",
+                "Grecia",
+                "San Mateo",
+                "Atenas",
+                "Naranjo",
+                "Palmares",
+                "Poas",
+                "Orotina",
+                "San Carlos",
+                "Zarcero",
+                "Sarchi",
+                "Upala",
+                "Los Chiles",
+                "Guatuso"
+            }
+        },
+        {"Cartago",new List<string>
+            {
+                "Cartago",
+                "Paraiso",
+                "La Union",
+                "Jimenez",
+                "Turrialba",
+                "Alvarado",
+                "Oreamuno",
+                "El Guarco"
+            } 
+        },
+        {"Heredia",new List<string>
+            {
+                "Heredia",
+                "Barva",
+                "Santo Domingo",
+                "Santa Barbara",
+                "San Rafael",
+                "San Isidro",
+                "Belen",
+                "Flores",
+                "San Pablo",
+                "Sarapiqui"
+            }
+        },
+        {"Guanacaste",new List<string>
+            {
+                "Liberia",
+                "Nicoya",
+                "Santa Cruz",
+                "Bagaces",
+                "Carrillo",
+                "Cañas",
+                "Abangares",
+                "Tilaran",
+                "Nandayure",
+                "La Cruz",
+                "Hojancha"
+            }
+        },
+        {"Puntarenas",new List<string>
+            {
+                "Puntarenas",
+                "Esparza",
+                "Buenos Aires",
+                "Montes de Oro",
+                "Osa",
+                "Aguirre",
+                "Golfito",
+                "Coto Brus",
+                "Parrita",
+                "Corredores"
+            }
+        },
+        {"Limon",new List<string>
+            {
+                "Limon",
+                "Pococi",
+                "Siquirres",
+                "Talamanca",
+                "Matina",
+                "Guacimo"
+            }
+        }
+    };
+    string provinciaS = "San Jose";
+}
+@section Scripts{
+<script src="~/js/MentorSAMA/FormularioMentor.js"></script>
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,20 +169,21 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="provincia">Provincia:</label>
-                <select class="form-select" id="provincia">
-                    <option>San José</option>
-                    <option>Cartago</option>
-                    <option>Alajuela</option>
-                    <option>Heredia</option>
-                    <option>Limón</option>
-                    <option>Puntarenas</option>
-                    <option>Guanacaste</option>
+                <select class="form-select" id="provincia" onchange="cambiarProvincia(provinciaS)">
+                    @foreach (var item in provincias)
+                    {
+                        <option>@item</option>
+                        
+                    }
                 </select>
             </div>
             <div class="col">
                 <label for="canton">Cantón:</label>
                 <select class="form-select" id="canton">
-                    <option></option>
+                    @foreach (var item in diccCantones[provinciaS])
+                    {
+                        <option>@item</option>
+                    }
                 </select>
             </div>
             <div class="col">
@@ -155,7 +286,10 @@
         </div>
 
     </div>
-
+    <script>
+        var hola = cambiarProvincia(provinciaS);
+        console.log(hola);
+    </script>
 </body>
 
 </html>
