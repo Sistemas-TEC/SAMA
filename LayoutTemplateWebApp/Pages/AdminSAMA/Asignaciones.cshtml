@@ -7,3 +7,51 @@
     if (userRole != "2569") Response.Redirect("/ErrorPage");
 
 }
+
+<section class="container px-5 py-3">
+
+    <!-- Título y botón en la misma línea -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="d-inline-block">Asignaciones de Mentores a Ahijados</h3>
+
+        <form method="post" asp-page-handler="Assign" class="d-inline-block">
+            <button class="btn btn-primary" type="submit">Realizar Asignaciones</button>
+        </form>
+    </div>
+
+    <!-- Filtro -->
+    <form method="post" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="FilterEmailMentor" value="@Model.FilterEmailMentor" placeholder="Filtrar por correo de mentor" aria-label="Filtrar por correo de mentor">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Filtrar</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Asignaciones Table -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Mentor</th>
+                <th scope="col">Email Mentor</th>
+                <th scope="col">Ahijado</th>
+                <th scope="col">Email Ahijado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Assignments != null)
+            {
+                foreach (var assignment in Model.Assignments)
+                {
+                    <tr>
+                        <td>@assignment.Mentor.PersonName</td>
+                        <td>@assignment.Mentor.Email</td>
+                        <td>@assignment.Godchild.PersonName</td>
+                        <td>@assignment.Godchild.Email</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</section>

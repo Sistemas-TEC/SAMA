@@ -30,7 +30,6 @@
                         var listaAhijadoIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/ListaAhijado");
                         var listaAdminIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/ListaAdmin");
                         var AsignacionesIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/Asignaciones");
-                        var rolGeneratorIsActive = Context.Request.Path.Value.Contains("/AdminSAMA/RolGenerator");
                     }
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -45,9 +44,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @(AsignacionesIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/Asignaciones">Asignaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(rolGeneratorIsActive ? "active" : "")" asp-area="" asp-page="/AdminSAMA/RolGenerator">Asignar Rol</a>
                         </li>
                        
                     </ul>

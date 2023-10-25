@@ -1,27 +1,22 @@
 using LayoutTemplateWebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;  // Agregar para usar la sesión
+using System.Linq;  // Agregar para usar el método FirstOrDefault
 
 namespace LayoutTemplateWebApp.Pages.AhijadoSAMA
 {
     public class FormularioModel : PageModel
     {
-        private readonly IHttpClientFactory _clientFactory;
-        public string role { get; set; }
-
-        public FormularioModel(IHttpClientFactory clientFactory)
-        {
-            _clientFactory = clientFactory;
-        }
-
-        public List<UserAPIModel> PersonList { get; set; }
-        public string RawJsonData { get; set; }
+        public User CurrentUser { get; set; }
 
         public void OnGet()
         {
+            // Obtener el correo del ahijado
+            string userEmail = HttpContext.Session.GetString("email");
 
-            role = HttpContext.Session.GetString("role");
-
+            // Buscar al usuario por el email
+            CurrentUser = UserData.Users.FirstOrDefault(u => u.Email == userEmail);
         }
     }
 }

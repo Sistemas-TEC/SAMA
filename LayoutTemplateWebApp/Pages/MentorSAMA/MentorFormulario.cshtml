@@ -1,0 +1,155 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.MentorSAMA.MentorFormularioModel
+@{
+    var userRole = @Model.role;
+    Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
+
+    if (userRole != "7415") Response.Redirect("/ErrorPage");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Formulario de Mentor</h1>
+
+        <!-- Sección de información del mentor -->
+        <div class="row mt-4 justify-content-center">
+            <label for="nombre" class="col-sm-2 col-form-label text-center">Nombre completo:</label>
+            <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value="@Model.CurrentUser.PersonName">
+            </div>
+        </div>
+        <div class="row mt-2 justify-content-center">
+            <label for="carrera" class="col-sm-2 col-form-label text-center">Carrera:</label>
+            <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value="@Model.CurrentUser.DegreeName">
+            </div>
+        </div>
+        <div class="row mt-2 mb-4 justify-content-center">
+            <label for="correo" class="col-sm-2 col-form-label text-center">Correo:</label>
+            <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext text-center" id="correo" value="@Model.CurrentUser.Email">
+            </div>
+        </div>
+
+        <!-- Sección ¿De dónde eres? -->
+        <h3 class="text-center mt-4">¿De dónde eres?</h3>
+        <div class="row mb-4">
+            <div class="col">
+                <label for="provincia">Provincia:</label>
+                <select class="form-select" id="provincia">
+                    <option selected>@Model.CurrentUser.Province</option>
+                    <!-- Aquí puedes agregar las demás provincias... -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="canton">Cantón:</label>
+                <select class="form-select" id="canton">
+                    <option selected>@Model.CurrentUser.Canton</option>
+                    <!-- Aquí puedes agregar los demás cantones... -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="distrito">Distrito:</label>
+                <select class="form-select" id="distrito">
+                    <option selected>@Model.CurrentUser.District</option>
+                    <!-- Aquí puedes agregar los demás distritos... -->
+                </select>
+            </div>
+        </div>
+
+        <<h3 class="text-center">¿Cuáles son tus principales gustos?</h3>
+        <p class="text-center">Selecciona 5</p>
+        <div class="row mb-4">
+            <!-- Primer columna -->
+            <div class="col">
+                <!-- Videojuegos -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Videojuegos" id="videojuegos"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Videojuegos") ? "checked" : "")>
+                    <label class="form-check-label" for="videojuegos">Videojuegos</label>
+                </div>
+                <!-- Deportes -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Deportes" id="deportes"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Deportes") ? "checked" : "")>
+                    <label class="form-check-label" for="deportes">Deportes</label>
+                </div>
+                <!-- Música -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Música" id="musica"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Música") ? "checked" : "")>
+                    <label class="form-check-label" for="musica">Música</label>
+                </div>
+            </div>
+            <!-- Segunda columna -->
+            <div class="col">
+                <!-- Cine -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Cine" id="cine"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cine") ? "checked" : "")>
+                    <label class="form-check-label" for="cine">Cine</label>
+                </div>
+                <!-- Cocina -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Cocina" id="cocina"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cocina") ? "checked" : "")>
+                    <label class="form-check-label" for="cocina">Cocina</label>
+                </div>
+                <!-- Viajar -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Viajar" id="viajar"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Viajar") ? "checked" : "")>
+                    <label class="form-check-label" for="viajar">Viajar</label>
+                </div>
+            </div>
+            <!-- Tercera columna -->
+            <div class="col">
+                <!-- Libros -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Libros" id="libros"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Libros") ? "checked" : "")>
+                    <label class="form-check-label" for="libros">Libros</label>
+                </div>
+                <!-- Tecnología -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Tecnología" id="tecnologia"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Tecnología") ? "checked" : "")>
+                    <label class="form-check-label" for="tecnologia">Tecnología</label>
+                </div>
+                <!-- Naturaleza -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Naturaleza" id="naturaleza"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Naturaleza") ? "checked" : "")>
+                    <label class="form-check-label" for="naturaleza">Naturaleza</label>
+                </div>
+            </div>
+            <!-- Cuarta columna -->
+            <div class="col">
+                <!-- Arte -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Arte" id="arte"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Arte") ? "checked" : "")>
+                    <label class="form-check-label" for="arte">Arte</label>
+                </div>
+                <!-- Fotografía -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Fotografía" id="fotografia"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Fotografía") ? "checked" : "")>
+                    <label class="form-check-label" for="fotografia">Fotografía</label>
+                </div>
+                <!-- Otro gusto -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Otro" id="otro"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Otro") ? "checked" : "")>
+                    <label class="form-check-label" for="otro">Otro</label>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
