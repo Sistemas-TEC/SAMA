@@ -8,14 +8,13 @@ namespace LayoutTemplateWebApp.Pages.MentorSAMA
     {
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
+        public List<UserAPIModel> PersonList { get; set; }
+        public string RawJsonData { get; set; }
 
         public FormularioMentorModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
-
-        public List<UserAPIModel> PersonList { get; set; }
-        public string RawJsonData { get; set; }
 
         public void OnGet()
         {

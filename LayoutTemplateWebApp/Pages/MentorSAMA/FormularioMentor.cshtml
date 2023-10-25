@@ -18,7 +18,7 @@
         <div class="row mt-4 justify-content-center">
             <label for="nombre" class="col-sm-2 col-form-label text-center">Nombre completo:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value="Nombre del Usuario">
+                <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value="@HttpContext.Session.GetString("name")">
             </div>
         </div>
         <div class="row mt-2 justify-content-center">
@@ -30,7 +30,7 @@
         <div class="row mt-2 mb-4 justify-content-center">
             <label for="correo" class="col-sm-2 col-form-label text-center">Correo:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="correo" value="correo@ejemplo.com">
+                <input type="text" readonly class="form-control-plaintext text-center" id="correo" value="@HttpContext.Session.GetString("email")">
             </div>
         </div>
 
@@ -52,15 +52,13 @@
             <div class="col">
                 <label for="canton">Cantón:</label>
                 <select class="form-select" id="canton">
-                    <option>Turrialba</option>
-                    <option>Moravia</option>
+                    <option></option>
                 </select>
             </div>
             <div class="col">
                 <label for="distrito">Distrito:</label>
                 <select class="form-select" id="distrito">
-                    <option>Barrio Cuba</option>
-                    <option>San Josesito</option>
+                    <option></option>
                 </select>
             </div>
         </div>
