@@ -131,10 +131,25 @@
         }
     };
     string provinciaS = "San Jose";
-
+}
+@{
+    List<string> GetOptionsForSelect2(string selectedValue)
+    {
+        // Aquí obtienes las opciones para el segundo select basado en el valor seleccionado en el primer select
+        // Por ejemplo, desde una base de datos
+        // Debes retornar una lista de objetos SelectListItem
+        // Asegúrate de llenar las opciones apropiadas basadas en el valor de selectedValue
+        List<string> opciones = diccCantones[selectedValue];
+        {
+            return opciones;
+            // Agrega más opciones según tus necesidades
+    };
+    }
 }
 @section Scripts{
-<script src="~/js/MentorSAMA/FormularioMentor.js"></script>
+    <script src="~/js/MentorSAMA/FormularioMentor.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 }
 
 <!DOCTYPE html>
@@ -196,7 +211,7 @@
             </div>
             <div class="col">
                 <label for="distrito">Distrito:</label>
-                <select class="form-select" id="distrito">
+                <select class="form-select" id="selectDistrito">
                     <option></option>
                 </select>
             </div>
@@ -295,5 +310,4 @@
 
     </div>
 </body>
-
 </html>

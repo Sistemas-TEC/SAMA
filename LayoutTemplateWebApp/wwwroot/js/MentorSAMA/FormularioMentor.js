@@ -1,17 +1,23 @@
-var select1 = document.getElementById("selectProvincia");
-var select2 = document.getElementById("selectCanton");
-
-select.addEventListener("change", function () {
-    var selectedVal = select1.value;
-    
-    return selectedVal;
-});
-
 function cambiarProvincia() {
-    var select = document.getElementById("selectProvincia");
+    var select1 = document.getElementById("selectProvincia");
+    var select2 = document.getElementById("selectCanton");
 
-    // Obtiene el valor seleccionado del elemento <select>
-    opcionSeleccionada = select.options[select.selectedIndex].value;
-    return opcionSeleccionada;    
+    select1.addEventListener("change", function () {
+        document.getElementById("select1").addEventListener("change", function () {
+            var selectedValue = this.value;
+            // Realiza una llamada al servidor para obtener las opciones para el segundo select
+            $.get("/FormularioMentor/GetOptionsForSelect2", { selectedValue: selectedValue }, function (data) {
+                // Limpia y llena el segundo select con las nuevas opciones
+                var select2 = document.getElementById("select2");
+                select2.innerHTML = "";
+                for (var i = 0; i < data.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = data[i].Value;
+                    option.text = data[i].Text;
+                    select2.appendChild(option);
+                }
+            });
+        });
+    }); 
     
 }
