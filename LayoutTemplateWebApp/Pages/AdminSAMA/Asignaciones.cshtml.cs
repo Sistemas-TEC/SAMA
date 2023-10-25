@@ -9,6 +9,10 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
 
+        public List<User> Mentors { get; set; }
+        public List<User> Ahijados { get; set; }
+   
+
         public AsignacionesModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;

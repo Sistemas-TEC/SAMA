@@ -10,28 +10,43 @@
 
 <section class="container px-5 py-3">
     <h3 style="margin-bottom: 2rem;">Lista de Mentores</h3>
-    <table class="table" aria-label="Tabla de nombres de personas">
+    <form method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="FilterEmail" value="@Model.FilterEmail" placeholder="Buscar por correo" aria-label="Buscar por correo">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Filtrar</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered table-striped" style="width:100%" aria-label="Tabla de nombres de personas">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
+                <th scope="col">Apellidos</th>
                 <th scope="col">Email</th>
+                <th scope="col">Numero</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">Provincia</th>
                 <th scope="col">Cantón</th>
                 <th scope="col">Distrito</th>
+                <th scope="col">Gustos</th>
             </tr>
         </thead>
         <tbody>
-            @if (Model.PersonList != null && Model.PersonList.Any())
+            @if (Model.MentorList != null && Model.MentorList.Any())
             {
-                foreach (var person in Model.PersonList)
+                foreach (var person in Model.MentorList)
                 {
                     <tr>
                         <td>@person.PersonName</td>
-                        <td>@person.FirstLastName</td>
+                        <td>@person.FirstLastName @person.SecondLastName</td>
                         <td>@person.Email</td>
-                        <td>@person.Student.DegreeName</td>
+                        <td>@person.NumContact</td>
+                        <td>@person.DegreeName</td>
+                        <td>@person.Province</td>
+                        <td>@person.Canton</td>
+                        <td>@person.District</td>
+                        <td>@string.Join(", ", person.Likings.Select(l => l.Name))</td>
                     </tr>
                 }
             }
