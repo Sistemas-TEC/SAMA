@@ -14,9 +14,8 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 {
     public class ListaAhijadoModel : PageModel
     {
-            private readonly IHttpClientFactory _clientFactory;
-            public string role { get; set; }
-
+        private readonly IHttpClientFactory _clientFactory;
+        public string role { get; set; }
         public List<UserAPIModel> PersonList { get; set; }
         public string RawJsonData { get; set; }
 
@@ -38,6 +37,7 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
             var client = _clientFactory.CreateClient();
             var response = await client.GetAsync("http://sistema-tec.somee.com/api/users");
             List<UserAPIModel> personList = new List<UserAPIModel>();
+            List<List<string>> listaUsers;
             if (response.IsSuccessStatusCode)
             {
                 try
