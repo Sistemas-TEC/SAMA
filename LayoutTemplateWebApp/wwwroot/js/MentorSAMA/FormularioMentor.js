@@ -1,10 +1,17 @@
-function cambiarProvincia(var opcionSeleccionada) {
-    var select = document.getElementById("provincia");
-    var valorSeleccionado = document.getElementById("valorSeleccionado");
+var select1 = document.getElementById("selectProvincia");
+var select2 = document.getElementById("selectCanton");
+
+select.addEventListener("change", function () {
+    var selectedVal = select1.value;
+    
+    return selectedVal;
+});
+
+function cambiarProvincia() {
+    var select = document.getElementById("selectProvincia");
 
     // Obtiene el valor seleccionado del elemento <select>
     opcionSeleccionada = select.options[select.selectedIndex].value;
-        
-
-    return opcionSeleccionada
+    return opcionSeleccionada;    
+    
 }
