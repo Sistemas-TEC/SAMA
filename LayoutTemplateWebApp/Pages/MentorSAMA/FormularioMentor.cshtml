@@ -1,5 +1,5 @@
 ﻿@page
-@model LayoutTemplateWebApp.Pages.MentorSAMA.PerfilMentorModel
+@model LayoutTemplateWebApp.Pages.MentorSAMA.FormularioMentorModel
 @{
     var userRole = @Model.role;
     Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
@@ -131,6 +131,7 @@
         }
     };
     string provinciaS = "San Jose";
+
 }
 @section Scripts{
 <script src="~/js/MentorSAMA/FormularioMentor.js"></script>
@@ -148,14 +149,19 @@
         <div class="row mt-4 justify-content-center">
             <label for="nombre" class="col-sm-2 col-form-label text-center">Nombre completo:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value="@HttpContext.Session.GetString("name")">
+                @foreach (var person in Model.MentorList)
+                {
+                    <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value=@person.PersonName>
+                }
             </div>
         </div>
         <div class="row mt-2 justify-content-center">
             <label for="carrera" class="col-sm-2 col-form-label text-center">Carrera:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value="Carrera del Usuario">
-            </div>
+                @foreach(var person in Model.MentorList){
+                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value=@person.DegreeName>
+                }
+                </div>
         </div>
         <div class="row mt-2 mb-4 justify-content-center">
             <label for="correo" class="col-sm-2 col-form-label text-center">Correo:</label>
@@ -169,17 +175,19 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="provincia">Provincia:</label>
-                <select class="form-select" id="provincia" onchange="cambiarProvincia(provinciaS)">
-                    @foreach (var item in provincias)
-                    {
-                        <option>@item</option>
-                        
-                    }
+                <select class="form-select" id="selectProvincia" onchange="cambiarProvincia()">
+                    <option value="San Jose">San Jose</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="Limon">Limon</option>
                 </select>
             </div>
             <div class="col">
                 <label for="canton">Cantón:</label>
-                <select class="form-select" id="canton">
+                <select class="form-select" id="selectCanton">
                     @foreach (var item in diccCantones[provinciaS])
                     {
                         <option>@item</option>
@@ -286,10 +294,6 @@
         </div>
 
     </div>
-    <script>
-        var hola = cambiarProvincia(provinciaS);
-        console.log(hola);
-    </script>
 </body>
 
 </html>
