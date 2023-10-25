@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 using LayoutTemplateWebApp.Model;
 using LayoutTemplateWebApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
+using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -15,18 +13,20 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 {
     public class ListaMentorModel : PageModel
     {
+        private readonly ApplicationDBContext _context;
         private readonly IHttpClientFactory _clientFactory;
         public string role { get; set; }
 
         public List<UserAPIModel> PersonList { get; set; }
         public string RawJsonData { get; set; }
 
-        public ListaMentorModel(IHttpClientFactory clientFactory)
+        public ListaMentorModel(ApplicationDBContext context, IHttpClientFactory clientFactory)
         {
+            _context = context;
             _clientFactory = clientFactory;
         }
 
-
+        public List <StudentIntegratec> StudentsIntegratec { get; set; }
         public async Task OnGet()
         {
             role = HttpContext.Session.GetString("role");
@@ -63,5 +63,4 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
             return personList;
         }
     }
-
 }

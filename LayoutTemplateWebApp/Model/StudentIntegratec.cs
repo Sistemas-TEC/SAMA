@@ -3,23 +3,36 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Model
 {
-    public partial class StudentIntegratec
+    public class StudentIntegratec
     {
         [Key]
-        public string email { get; set; }
-        public string numContact { get; set; }
-        public int? provinceId { get; set; }
-        public int? cantonId { get; set; }
-        public int? districtId { get; set; }
+        [Column("email")]
+        public string Email { get; set; }
 
-        public virtual Canton canton { get; set; }
-        public virtual District district { get; set; }
-        public virtual Person emailNavigation { get; set; }
-        public virtual Province province { get; set; }
-        public virtual Godchild Godchild { get; set; }
-        public virtual Mentor Mentor { get; set; }
+        [Column("numContact")]
+        public string NumContact { get; set; }
+
+        [ForeignKey("Province")]
+        [Column("provinceId")]
+        public int? ProvinceId { get; set; }
+        public virtual Province Province { get; set; }
+
+        [ForeignKey("Canton")]
+        [Column("cantonId")]
+        public int? CantonId { get; set; }
+        public virtual Canton Canton { get; set; }
+
+        [ForeignKey("District")]
+        [Column("districtId")]
+        public int? DistrictId { get; set; }
+        public virtual District District { get; set; }
+
+        [NotMapped]
+        public UserAPIModel Person { get; set; }
+
     }
 }

@@ -16,6 +16,10 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Email</th>
+                <th scope="col">Carrera</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Cantón</th>
+                <th scope="col">Distrito</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +31,7 @@
                         <td>@person.PersonName</td>
                         <td>@person.FirstLastName</td>
                         <td>@person.Email</td>
+                        <td>@person.Student.DegreeName</td>
                     </tr>
                 }
             }
