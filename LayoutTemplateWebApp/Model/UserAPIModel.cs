@@ -1,8 +1,8 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-﻿using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Model
 {
@@ -33,14 +33,18 @@ namespace LayoutTemplateWebApp.Model
 
         [JsonPropertyName("student")]
         public Student Student { get; set; }
+        [NotMapped]
+        public List<Object> Departments { get; set; }
 
-        [JsonPropertyName("departments")]
-        public List<Object> Departments { get; set; } // Assuming Department is a list of string
-
-        [JsonPropertyName("schools")]
-        public List<Object> Schools { get; set; }     // Assuming School is a list of string
+        [NotMapped]
+        public List<Object> Schools { get; set; }
 
         [JsonPropertyName("applicationRoles")]
         public List<ApplicationRole> ApplicationRoles { get; set; }
+
+        public string ProvinceName { get; set; }
+        public string CantonName { get; set; }
+        public string DistrictName { get; set; }
+        public List<Liking> Likings { get; set; }
     }
 }

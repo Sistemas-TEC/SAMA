@@ -3,21 +3,18 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Model
 {
-    public partial class Province
+    public class Province
     {
-        public Province()
-        {
-            Canton = new HashSet<Canton>();
-            StudentIntegratec = new HashSet<StudentIntegratec>();
-        }
         [Key]
-        public int provinceId { get; set; }
-        public string provinceName { get; set; }
+        [Column("provinceId")]
+        public int ProvinceId { get; set; }
 
-        public virtual ICollection<Canton> Canton { get; set; }
-        public virtual ICollection<StudentIntegratec> StudentIntegratec { get; set; }
+        [Required]
+        [Column("provinceName")]
+        public string ProvinceName { get; set; }
     }
 }
