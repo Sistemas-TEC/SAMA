@@ -3,21 +3,20 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Model
 {
-    public partial class Godchild
+    public class Godchild
     {
-        public Godchild()
-        {
-            liking = new HashSet<Liking>();
-        }
         [Key]
-        public string email { get; set; }
-        public string consideration { get; set; }
+        [Column("email")]
+        [ForeignKey("StudentIntegratec")]
+        public string Email { get; set; }
 
-        public virtual StudentIntegratec emailNavigation { get; set; }
+        [Column("consideration")]
+        public string Consideration { get; set; }
 
-        public virtual ICollection<Liking> liking { get; set; }
+        public virtual StudentIntegratec StudentIntegratec { get; set; }
     }
 }

@@ -3,15 +3,18 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Model
 {
     public partial class PersonXApplicationRole
     {
-        [Key]
-        public string email { get; set; }
+        [NotMapped]
+        public List<string> Emails { get; set; }
+
         public int applicationRoleId { get; set; }
 
+        [ForeignKey("email")]
         public virtual Person emailNavigation { get; set; }
     }
 }
