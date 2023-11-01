@@ -5,8 +5,7 @@
     "\\LayoutTemplateWebApp\\Data",
     "\\LayoutTemplateWebApp\\Model",
     "\\LayoutTemplateWebApp\\Pages",
-    "\\LayoutTemplateWebApp\\Pages\\AdminSAMA",
-    "\\LayoutTemplateWebApp\\Pages\\AhijadoSAMA"
+    "\\LayoutTemplateWebApp\\Pages\\AdminSAMA"
   ],
   "SelectedNode": "\\LayoutTemplateWebApp\\LayoutTemplateWebApp.sln",
   "PreviewInSolutionExplorer": false

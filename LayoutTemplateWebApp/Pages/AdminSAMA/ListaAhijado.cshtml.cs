@@ -32,14 +32,13 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
         public void OnGet()
         {
             role = HttpContext.Session.GetString("role");
-            LoadDefaultList(); // Método para cargar la lista por defecto
+            LoadDefaultList(); // Mï¿½todo para cargar la lista por defecto
 
             if (!string.IsNullOrEmpty(FilterEmail))
             {
                 AhijadoList = AhijadoList.Where(a => a.Email.Contains(FilterEmail, StringComparison.OrdinalIgnoreCase)).ToList();
             }
         }
-
         public void OnPost()
         {
             OnGet();
@@ -47,8 +46,9 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 
         private void LoadDefaultList()
         {
-            // Aquí simplemente extraemos la lista de usuarios con Role = 2 de UserData.
+            // Aquï¿½ simplemente extraemos la lista de usuarios con Role = 2 de UserData.
             AhijadoList = UserData.Users.Where(u => u.Role == 2).ToList();
+
         }
     }
 }

@@ -1,15 +1,13 @@
 ﻿@page
 @model LayoutTemplateWebApp.Pages.AdminSAMA.AsignacionesModel
 @{
-    var userRole = @Model.role;
+    var userRole = Model.role;
     Layout = userRole == "2569" ? "_AdminLayout" : "_ErrorLayout";
 
     if (userRole != "2569") Response.Redirect("/ErrorPage");
-
 }
 
 <section class="container px-5 py-3">
-
     <!-- Título y botón en la misma línea -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="d-inline-block">Asignaciones de Mentores a Ahijados</h3>
@@ -37,6 +35,7 @@
                 <th scope="col">Email Mentor</th>
                 <th scope="col">Ahijado</th>
                 <th scope="col">Email Ahijado</th>
+                <th scope="col">Atributos en Común</th> <!-- Nueva columna -->
             </tr>
         </thead>
         <tbody>
@@ -49,6 +48,15 @@
                         <td>@assignment.Mentor.Email</td>
                         <td>@assignment.Godchild.PersonName</td>
                         <td>@assignment.Godchild.Email</td>
+                        <td>
+                            @{
+                                foreach (var attribute in assignment.CommonAttributes)
+                                {
+                                    var attrDisplay = attribute;
+                                    <div>@attrDisplay</div>
+                                }
+                            }
+                        </td>
                     </tr>
                 }
             }

@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <<h3 class="text-center">¿Cuáles son tus principales gustos?</h3>
+        <h3 class="text-center">¿Cuáles son tus principales gustos?</h3>
         <p class="text-center">Selecciona 5</p>
         <div class="row mb-4">
             <!-- Primer columna -->
@@ -127,28 +127,14 @@
                     <label class="form-check-label" for="naturaleza">Naturaleza</label>
                 </div>
             </div>
-            <!-- Cuarta columna -->
-            <div class="col">
-                <!-- Arte -->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Arte" id="arte"
-                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Arte") ? "checked" : "")>
-                    <label class="form-check-label" for="arte">Arte</label>
-                </div>
-                <!-- Fotografía -->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Fotografía" id="fotografia"
-                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Fotografía") ? "checked" : "")>
-                    <label class="form-check-label" for="fotografia">Fotografía</label>
-                </div>
-                <!-- Otro gusto -->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Otro" id="otro"
-                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Otro") ? "checked" : "")>
-                    <label class="form-check-label" for="otro">Otro</label>
-                </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
+    </div>
 
 </body>
 

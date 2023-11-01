@@ -167,6 +167,15 @@ namespace LayoutTemplateWebApp.Model
         }
     };
         public static List<Assignment> AssignmentsList { get; } = new List<Assignment>();
+
+        public static void UpdateUser(User updatedUser)
+        {
+            var userIndex = Users.FindIndex(u => u.Email == updatedUser.Email);
+            if (userIndex != -1)
+            {
+                Users[userIndex] = updatedUser;
+            }
+        }
     }
 }
 

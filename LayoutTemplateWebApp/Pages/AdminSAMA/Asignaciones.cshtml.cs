@@ -91,10 +91,21 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
 
                     if (bestMatchAhijado != null)
                     {
+                        var commonAttributes = new List<string>();
+                        if (mentor.Province == bestMatchAhijado.Province)
+                            commonAttributes.Add("Provincia: " + mentor.Province);
+                        if (mentor.Canton == bestMatchAhijado.Canton)
+                            commonAttributes.Add("Cantón: " + mentor.Canton);
+                        if (mentor.DegreeName == bestMatchAhijado.DegreeName)
+                            commonAttributes.Add("Carrera: " + mentor.DegreeName);
+                        var commonLikings = mentor.Likings.Select(l => l.Name).Intersect(bestMatchAhijado.Likings.Select(l => l.Name));
+                        commonAttributes.AddRange(commonLikings.Select(l => "Gusto: " + l));
+
                         Assignments.Add(new Assignment
                         {
                             Mentor = mentor,
-                            Godchild = bestMatchAhijado
+                            Godchild = bestMatchAhijado,
+                            CommonAttributes = commonAttributes
                         });
 
                         ahijadosOfSameDegree.Remove(bestMatchAhijado);
