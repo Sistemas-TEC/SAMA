@@ -15,8 +15,8 @@ namespace LayoutTemplateWebApp.Model
                     SecondLastName = "Ozamis",
                     NumContact = 85631892,
                     DegreeName = "Ingeniería en Computación",
-                    Province = "San Jose",
-                    Canton = "San Jose",
+                    Province = "San José",
+                    Canton = "San José",
                     District = "Hospital",
                     Likings = new List<LikingUser>
                     {
@@ -35,14 +35,14 @@ namespace LayoutTemplateWebApp.Model
                     SecondLastName = "Rojas",
                     NumContact = 65734522,
                     DegreeName = "Ingeniería en Computación",
-                    Province = "San Jose",
+                    Province = "San José",
                     District = "Piedades",
                     Canton = "Santa Ana",
                     Likings = new List<LikingUser>
                     {
                         new LikingUser { Name = "Viajar" },
-                        new LikingUser { Name = "Gimnasio" },
-                        new LikingUser { Name = "Politica" }
+                        new LikingUser { Name = "Deportes" },
+                        new LikingUser { Name = "Música" }
                     },
                     Comment = "Soy alergico al sol"
                 },
@@ -74,7 +74,7 @@ namespace LayoutTemplateWebApp.Model
                     SecondLastName = "Hernandez",
                     NumContact = 88215271,
                     DegreeName = "Ingeniería en Computación",
-                    Province = "San Jose",
+                    Province = "San José",
                     District = "San Rafael",
                     Canton = "Escazú",
                    Likings = new List<LikingUser>
@@ -87,14 +87,14 @@ namespace LayoutTemplateWebApp.Model
                 },
                 new User
                 {
-                    Email = "machobg08@estudiantec.cr",
+                    Email = "svega106@estudiantec.cr",
                     Role = 2,
-                    PersonName = "Alex",
-                    FirstLastName = "Brenes",
-                    SecondLastName = "Garita",
+                    PersonName = "Sebastián",
+                    FirstLastName = "Vega",
+                    SecondLastName = "Cerdas",
                     NumContact = 88213452,
                     DegreeName = "Ingeniería Mecatrónica",
-                    Province = "San Jose",
+                    Province = "San José",
                     District = "Guadalupe",
                     Canton = "Goicoechea",
                     Likings = new List<LikingUser>
@@ -115,15 +115,16 @@ namespace LayoutTemplateWebApp.Model
             SecondLastName = "Molina",
             NumContact = 85631892,
             DegreeName = "Ingeniería en Computación",
-            Province = "San Jose",
-            Canton = "San Jose",
+            Province = "San José",
+            Canton = "San José",
             District = "Merced",
             Likings = new List<LikingUser>
                     {
-                        new LikingUser { Name = "Videojuegos" },
-                        new LikingUser { Name = "Cine" }
+                        new LikingUser { Name = "Libros" },
+                        new LikingUser { Name = "Música" },
+                        new LikingUser { Name = "Naturaleza" }
                     },
-                    Comment = "Me gusta One Piece"
+                    Comment = "Este ya es mi tercer año como mentor de Integratec pero me gusta poder ayudar a los muchachos de primer ingreso"
         },
 
         new User
@@ -153,8 +154,8 @@ namespace LayoutTemplateWebApp.Model
             FirstLastName = "Murillo",
             SecondLastName = "Mena",
             NumContact = 85633321,
-            DegreeName = "Ingenieria Mecatrónica",
-            Province = "San Jose",
+            DegreeName = "Ingeniería Mecatrónica",
+            Province = "San José",
             Canton = "Moravia",
             District = "San Vicente",
             Likings = new List<LikingUser>
@@ -162,10 +163,19 @@ namespace LayoutTemplateWebApp.Model
                         new LikingUser { Name = "Moda" },
                         new LikingUser { Name = "Gimnasio" }
                     },
-            Comment = "No me gusta gritar"
+            Comment = "Es mi primer vez como mentora de Integratec, pero estoy muy emocionada por la experiencia"
         }
     };
+        public static List<Assignment> AssignmentsList { get; } = new List<Assignment>();
 
+        public static void UpdateUser(User updatedUser)
+        {
+            var userIndex = Users.FindIndex(u => u.Email == updatedUser.Email);
+            if (userIndex != -1)
+            {
+                Users[userIndex] = updatedUser;
+            }
+        }
     }
 }
 

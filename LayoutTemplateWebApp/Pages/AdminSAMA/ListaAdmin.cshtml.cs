@@ -21,17 +21,28 @@ namespace LayoutTemplateWebApp.Pages.AdminSAMA
         public List<UserAPIModel> PersonList { get; set; }
         public string RawJsonData { get; set; }
 
+        [BindProperty]
+        public string FilterEmail { get; set; }
+
         public ListaAdminModel(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
         }
-
 
         public async Task OnGet()
         {
             role = HttpContext.Session.GetString("role");
             PersonList = await LoadPersonsData();
 
+            if (!string.IsNullOrEmpty(FilterEmail))
+            {
+                PersonList = PersonList.Where(p => p.Email.Contains(FilterEmail, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+        }
+
+        public void OnPost()
+        {
+            OnGet().Wait(); // Espera la ejecución de OnGet
         }
 
         public async Task<List<UserAPIModel>> LoadPersonsData()

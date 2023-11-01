@@ -1,0 +1,289 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.MentorSAMA.MentorFormularioModel
+@{
+    var userRole = @Model.role;
+    Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
+
+    if (userRole != "7415") Response.Redirect("/ErrorPage");
+
+}
+@{
+    List<string> provincias = new List<string>
+        {
+            "San Jose",
+            "Alajuela",
+            "Cartago",
+            "Heredia",
+            "Guanacaste",
+            "Puntarenas",
+            "Limon"
+        };
+
+    Dictionary<string, List<string>> diccCantones = new Dictionary<string, List<string>>
+    {
+        { "San Jose", new List<string>
+            {
+                "San Jose",
+                "Escazu",
+                "Desamparados",
+                "Puriscal",
+                "Tarrazu",
+                "Aserri",
+                "Mora",
+                "Goicoechea",
+                "Santa Ana",
+                "Alajuelita",
+                "Vazquez de Coronado",
+                "Acosta",
+                "Tibas",
+                "Moravia",
+                "Montes de Oca",
+                "Turrubares",
+                "Dota",
+                "Curridabat",
+                "Perez Zeledon",
+                "Leon Cortes"
+            }
+        },
+        {"Alajuela",new List<string>
+            {
+                "Alajuela",
+                "San Ramon",
+                "Grecia",
+                "San Mateo",
+                "Atenas",
+                "Naranjo",
+                "Palmares",
+                "Poas",
+                "Orotina",
+                "San Carlos",
+                "Zarcero",
+                "Sarchi",
+                "Upala",
+                "Los Chiles",
+                "Guatuso"
+            }
+        },
+        {"Cartago",new List<string>
+            {
+                "Cartago",
+                "Paraiso",
+                "La Union",
+                "Jimenez",
+                "Turrialba",
+                "Alvarado",
+                "Oreamuno",
+                "El Guarco"
+            } 
+        },
+        {"Heredia",new List<string>
+            {
+                "Heredia",
+                "Barva",
+                "Santo Domingo",
+                "Santa Barbara",
+                "San Rafael",
+                "San Isidro",
+                "Belen",
+                "Flores",
+                "San Pablo",
+                "Sarapiqui"
+            }
+        },
+        {"Guanacaste",new List<string>
+            {
+                "Liberia",
+                "Nicoya",
+                "Santa Cruz",
+                "Bagaces",
+                "Carrillo",
+                "Cañas",
+                "Abangares",
+                "Tilaran",
+                "Nandayure",
+                "La Cruz",
+                "Hojancha"
+            }
+        },
+        {"Puntarenas",new List<string>
+            {
+                "Puntarenas",
+                "Esparza",
+                "Buenos Aires",
+                "Montes de Oro",
+                "Osa",
+                "Aguirre",
+                "Golfito",
+                "Coto Brus",
+                "Parrita",
+                "Corredores"
+            }
+        },
+        {"Limon",new List<string>
+            {
+                "Limon",
+                "Pococi",
+                "Siquirres",
+                "Talamanca",
+                "Matina",
+                "Guacimo"
+            }
+        }
+    };
+    string provinciaS = "San Jose";
+}
+@{
+    List<string> GetOptionsForSelect2(string selectedValue)
+    {
+        // Aquí obtienes las opciones para el segundo select basado en el valor seleccionado en el primer select
+        // Por ejemplo, desde una base de datos
+        // Debes retornar una lista de objetos SelectListItem
+        // Asegúrate de llenar las opciones apropiadas basadas en el valor de selectedValue
+        List<string> opciones = diccCantones[selectedValue];
+        {
+            return opciones;
+            // Agrega más opciones según tus necesidades
+    };
+    }
+}
+@section Scripts{
+    <script src="~/js/MentorSAMA/FormularioMentor.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Formulario de Mentor</h1>
+
+        <!-- Sección de información del mentor -->
+        <div class="row mt-4 justify-content-center">
+            <label for="nombre" class="col-sm-2 col-form-label text-center">Nombre completo:</label>
+            <div class="col-sm-6">
+                @foreach (var person in Model.MentorList)
+                {
+                    <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value=@person.PersonName>
+                }
+            </div>
+        </div>
+        <div class="row mt-2 justify-content-center">
+            <label for="carrera" class="col-sm-2 col-form-label text-center">Carrera:</label>
+            <div class="col-sm-6">
+                @foreach(var person in Model.MentorList){
+                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value=@person.DegreeName>
+                }
+                </div>
+        </div>
+        <div class="row mt-2 mb-4 justify-content-center">
+            <label for="correo" class="col-sm-2 col-form-label text-center">Correo:</label>
+            <div class="col-sm-6">
+                <input type="text" readonly class="form-control-plaintext text-center" id="correo" value="@Model.CurrentUser.Email">
+            </div>
+        </div>
+
+        <!-- Sección ¿De dónde eres? -->
+        <h3 class="text-center mt-4">¿De dónde eres?</h3>
+        <div class="row mb-4">
+            <div class="col">
+                <label for="provincia">Provincia:</label>
+                <select class="form-select" id="provincia">
+                    <option selected>@Model.CurrentUser.Province</option>
+                    <!-- Aquí puedes agregar las demás provincias... -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="canton">Cantón:</label>
+                <select class="form-select" id="canton">
+                    <option selected>@Model.CurrentUser.Canton</option>
+                    <!-- Aquí puedes agregar los demás cantones... -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="distrito">Distrito:</label>
+                <select class="form-select" id="distrito">
+                    <option selected>@Model.CurrentUser.District</option>
+                    <!-- Aquí puedes agregar los demás distritos... -->
+                </select>
+            </div>
+        </div>
+
+        <h3 class="text-center">¿Cuáles son tus principales gustos?</h3>
+        <p class="text-center">Selecciona 5</p>
+        <div class="row mb-4">
+            <!-- Primer columna -->
+            <div class="col">
+                <!-- Videojuegos -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Videojuegos" id="videojuegos"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Videojuegos") ? "checked" : "")>
+                    <label class="form-check-label" for="videojuegos">Videojuegos</label>
+                </div>
+                <!-- Deportes -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Deportes" id="deportes"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Deportes") ? "checked" : "")>
+                    <label class="form-check-label" for="deportes">Deportes</label>
+                </div>
+                <!-- Música -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Música" id="musica"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Música") ? "checked" : "")>
+                    <label class="form-check-label" for="musica">Música</label>
+                </div>
+            </div>
+            <!-- Segunda columna -->
+            <div class="col">
+                <!-- Cine -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Cine" id="cine"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cine") ? "checked" : "")>
+                    <label class="form-check-label" for="cine">Cine</label>
+                </div>
+                <!-- Cocina -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Cocina" id="cocina"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cocina") ? "checked" : "")>
+                    <label class="form-check-label" for="cocina">Cocina</label>
+                </div>
+                <!-- Viajar -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Viajar" id="viajar"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Viajar") ? "checked" : "")>
+                    <label class="form-check-label" for="viajar">Viajar</label>
+                </div>
+            </div>
+            <!-- Tercera columna -->
+            <div class="col">
+                <!-- Libros -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Libros" id="libros"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Libros") ? "checked" : "")>
+                    <label class="form-check-label" for="libros">Libros</label>
+                </div>
+                <!-- Tecnología -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Tecnología" id="tecnologia"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Tecnología") ? "checked" : "")>
+                    <label class="form-check-label" for="tecnologia">Tecnología</label>
+                </div>
+                <!-- Naturaleza -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Naturaleza" id="naturaleza"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Naturaleza") ? "checked" : "")>
+                    <label class="form-check-label" for="naturaleza">Naturaleza</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

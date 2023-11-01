@@ -1,52 +1,43 @@
 ﻿@page
-@model LayoutTemplateWebApp.Pages.AhijadoSAMA.IndexModel
+@model LayoutTemplateWebApp.Pages.AhijadoSAMA.PerfilModel
 @{
     Layout = "_AhijadoLayout";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LayoutTemplateWebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/LayoutTemplateWebApp.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <div class="contenedor">
-        <div class="header" with:auto height:auto>
-            <div class="Titulo">
-            <h1>¡Bienvenido al sistema de Asignación Mentor-Ahijado!</h1>
-            </div>
-            <div class="TextoMentor"> 
-            <h6 class="textoMentor">Su mentor es:</h6>
-            </div>  
-        </div>
-        <div class="card" style="width: 304px; height:524px;">
-            <div class="card-body">
-                <div class = "card-info">
-                <h5 class="card-title">Nombre </h5>
-                </div>
-                <div class="card-info">
-                <h5> @HttpContext.Session.GetString("name")@HttpContext.Session.GetString("LastName")@HttpContext.Session.GetString("LastName2")</h5>
-                </div>
-                <div class="card-info">
-                <h5 class="card-title">Residencia</h5>
-                </div>
-                <div class="card-info">
-                <h5 class="card-title">Carrera</h5>
-                </div>
-                <div class="card-info">
-                <h5 class="card-title">Gustos</h5>
-                </div>
-                <div class="card-info">
-                <h5 class="card-title">Contacto</h5>
+
+
+<div class="container mt-5">
+    <div class="header text-center">
+        <h1 class="Titulo display-1">¡Bienvenido al sistema de Asignación Mentor-Ahijado!</h1>
+        @if (Model.MentorData != null)
+        {
+            <h4 class="textoMentor mt-5">Su mentor es:</h4>
+            <div class="card my-5" style="background-color: #e0f7fa;">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Nombre:</h4>
+                    <h5>@Model.MentorData.PersonName @Model.MentorData.FirstLastName @Model.MentorData.SecondLastName</h5>
+                    <h4 class="card-title mt-4">Residencia:</h4>
+                    <p>@Model.MentorData.Province</p>
+                    <h4 class="card-title mt-4">Carrera:</h4>
+                    <p>@Model.MentorData.DegreeName</p>
+                    <h4 class="card-title mt-4">Gustos:</h4>
+                    <ul class="mb-3">
+                        @foreach (var liking in Model.MentorData.Likings)
+                        {
+                            <li>@liking.Name</li>
+                        }
+                    </ul>
+                    <h4 class="card-title mt-4">Número de Contacto:</h4>
+                    <p>@Model.MentorData.NumContact</p>
+                    <h4 class="card-title mt-4">Correo Electrónico:</h4>
+                    <p>@Model.MentorData.Email</p>
+                    <h4 class="card-title mt-4">Comentario del Mentor:</h4>
+                    <p>@Model.MentorData.Comment</p>
                 </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <h6 class="textoMentor mt-4">Actualmente no tiene un mentor asignado.</h6>
+        }
     </div>
-</body>
-</html>
+</div>

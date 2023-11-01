@@ -43,7 +43,7 @@ namespace LayoutTemplateWebApp.Pages
                 // Now make the asynchronous call to the external API
                 else if (HttpContext.Session.GetString("role") == "7415")
                 {
-                    Response.Redirect("/MentorSAMA/FormularioMentor");
+                    Response.Redirect("/MentorSAMA/PerfilMentor");
                 }
                 else if (HttpContext.Session.GetString("role") == "2569")
                 {
@@ -121,7 +121,7 @@ namespace LayoutTemplateWebApp.Pages
             // Now make the asynchronous call to the external API
             if (HttpContext.Session.GetString("role") == "7415")
             {
-                Response.Redirect("/MentorSAMA/FormularioMentor");
+                Response.Redirect("/MentorSAMA/PerfilMentor");
             }
             else if (HttpContext.Session.GetString("role") == "2569")
             {

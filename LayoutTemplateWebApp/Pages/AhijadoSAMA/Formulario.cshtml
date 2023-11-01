@@ -16,28 +16,23 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="provincia">Provincia:</label>
-                <select class="form-select" id="provincia">
-                    <option>San José</option>
-                    <option>Cartago</option>
-                    <option>Alajuela</option>
-                    <option>Heredia</option>
-                    <option>Limón</option>
-                    <option>Puntarenas</option>
-                    <option>Guanacaste</option>
+                <select class="form-select" id="provincia" value="@Model.CurrentUser.Province">
+                    <option>@Model.CurrentUser.Province</option>
+                    <!-- otros valores ... -->
                 </select>
             </div>
             <div class="col">
                 <label for="canton">Cantón:</label>
-                <select class="form-select" id="canton">
-                    <option>Turrialba</option>
-                    <option>Moravia</option>
+                <select class="form-select" id="canton" value="@Model.CurrentUser.Canton">
+                    <option>@Model.CurrentUser.Canton</option>
+                    <!-- otros valores ... -->
                 </select>
             </div>
             <div class="col">
                 <label for="distrito">Distrito:</label>
-                <select class="form-select" id="distrito">
-                    <option>Barrio Cuba</option>
-                    <option>San Josesito</option>
+                <select class="form-select" id="distrito" value="@Model.CurrentUser.District">
+                    <option>@Model.CurrentUser.District</option>
+                    <!-- otros valores ... -->
                 </select>
             </div>
         </div>
@@ -47,91 +42,93 @@
         <div class="row mb-4">
             <!-- Primer columna -->
             <div class="col">
+                <!-- Videojuegos -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="videojuegos">
+                    <input class="form-check-input" type="checkbox" value="Videojuegos" id="videojuegos"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Videojuegos") ? "checked" : "")>
                     <label class="form-check-label" for="videojuegos">Videojuegos</label>
                 </div>
+                <!-- Deportes -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="deportes">
+                    <input class="form-check-input" type="checkbox" value="Deportes" id="deportes"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Deportes") ? "checked" : "")>
                     <label class="form-check-label" for="deportes">Deportes</label>
                 </div>
+                <!-- Música -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="musica">
+                    <input class="form-check-input" type="checkbox" value="Música" id="musica"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Música") ? "checked" : "")>
                     <label class="form-check-label" for="musica">Música</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="cine">
-                    <label class="form-check-label" for="cine">Cine</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="television">
-                    <label class="form-check-label" for="television">Televisión</label>
                 </div>
             </div>
             <!-- Segunda columna -->
             <div class="col">
+                <!-- Cine -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="moda">
-                    <label class="form-check-label" for="moda">Moda</label>
+                    <input class="form-check-input" type="checkbox" value="Cine" id="cine"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cine") ? "checked" : "")>
+                    <label class="form-check-label" for="cine">Cine</label>
                 </div>
+                <!-- Cocina -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="lectura">
-                    <label class="form-check-label" for="lectura">Lectura</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="dibujo">
-                    <label class="form-check-label" for="dibujo">Dibujo</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="actividades">
-                    <label class="form-check-label" for="actividades">Actividades al aire libre</label>
-                </div>
-            </div>
-
-            <!-- Tercera columna -->
-            <div class="col">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="cocina">
+                    <input class="form-check-input" type="checkbox" value="Cocina" id="cocina"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Cocina") ? "checked" : "")>
                     <label class="form-check-label" for="cocina">Cocina</label>
                 </div>
+                <!-- Viajar -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="idiomas">
-                    <label class="form-check-label" for="idiomas">Idiomas</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="politica">
-                    <label class="form-check-label" for="politica">Política</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="viajar">
+                    <input class="form-check-input" type="checkbox" value="Viajar" id="viajar"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Viajar") ? "checked" : "")>
                     <label class="form-check-label" for="viajar">Viajar</label>
                 </div>
             </div>
-
+            <!-- Tercera columna -->
+            <div class="col">
+                <!-- Libros -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Libros" id="libros"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Libros") ? "checked" : "")>
+                    <label class="form-check-label" for="libros">Libros</label>
+                </div>
+                <!-- Tecnología -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Tecnología" id="tecnologia"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Tecnología") ? "checked" : "")>
+                    <label class="form-check-label" for="tecnologia">Tecnología</label>
+                </div>
+                <!-- Naturaleza -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Naturaleza" id="naturaleza"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Naturaleza") ? "checked" : "")>
+                    <label class="form-check-label" for="naturaleza">Naturaleza</label>
+                </div>
+            </div>
             <!-- Cuarta columna -->
             <div class="col">
+                <!-- Arte -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="gimnasio">
-                    <label class="form-check-label" for="gimnasio">Gimnasio</label>
+                    <input class="form-check-input" type="checkbox" value="Arte" id="arte"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Arte") ? "checked" : "")>
+                    <label class="form-check-label" for="arte">Arte</label>
                 </div>
+                <!-- Fotografía -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="cafeteria">
-                    <label class="form-check-label" for="cafeteria">Cafetería</label>
+                    <input class="form-check-input" type="checkbox" value="Fotografía" id="fotografia"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Fotografía") ? "checked" : "")>
+                    <label class="form-check-label" for="fotografia">Fotografía</label>
                 </div>
+                <!-- Otro gusto -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="anime">
-                    <label class="form-check-label" for="anime">Anime</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="voluntariado">
-                    <label class="form-check-label" for="voluntariado">Voluntariado</label>
+                    <input class="form-check-input" type="checkbox" value="Otro" id="otro"
+                    @(Model.CurrentUser.Likings.Exists(l => l.Name == "Otro") ? "checked" : "")>
+                    <label class="form-check-label" for="otro">Otro</label>
                 </div>
             </div>
         </div>
 
         <div class="mb-4">
             <h3 class="text-center mt-4">Consideraciones adicionales:</h3>
-            <textarea class="form-control" id="consideraciones" rows="4" maxlength="500"></textarea>
+            <textarea class="form-control" id="consideraciones" rows="4" maxlength="500">@Model.CurrentUser.Comment</textarea>
         </div>
 
         <div class="text-center">
