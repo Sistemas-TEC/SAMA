@@ -5,6 +5,151 @@
     Layout = userRole == "7415" ? "_MentorLayout" : "_ErrorLayout";
 
     if (userRole != "7415") Response.Redirect("/ErrorPage");
+
+}
+@{
+    List<string> provincias = new List<string>
+        {
+            "San Jose",
+            "Alajuela",
+            "Cartago",
+            "Heredia",
+            "Guanacaste",
+            "Puntarenas",
+            "Limon"
+        };
+
+    Dictionary<string, List<string>> diccCantones = new Dictionary<string, List<string>>
+    {
+        { "San Jose", new List<string>
+            {
+                "San Jose",
+                "Escazu",
+                "Desamparados",
+                "Puriscal",
+                "Tarrazu",
+                "Aserri",
+                "Mora",
+                "Goicoechea",
+                "Santa Ana",
+                "Alajuelita",
+                "Vazquez de Coronado",
+                "Acosta",
+                "Tibas",
+                "Moravia",
+                "Montes de Oca",
+                "Turrubares",
+                "Dota",
+                "Curridabat",
+                "Perez Zeledon",
+                "Leon Cortes"
+            }
+        },
+        {"Alajuela",new List<string>
+            {
+                "Alajuela",
+                "San Ramon",
+                "Grecia",
+                "San Mateo",
+                "Atenas",
+                "Naranjo",
+                "Palmares",
+                "Poas",
+                "Orotina",
+                "San Carlos",
+                "Zarcero",
+                "Sarchi",
+                "Upala",
+                "Los Chiles",
+                "Guatuso"
+            }
+        },
+        {"Cartago",new List<string>
+            {
+                "Cartago",
+                "Paraiso",
+                "La Union",
+                "Jimenez",
+                "Turrialba",
+                "Alvarado",
+                "Oreamuno",
+                "El Guarco"
+            } 
+        },
+        {"Heredia",new List<string>
+            {
+                "Heredia",
+                "Barva",
+                "Santo Domingo",
+                "Santa Barbara",
+                "San Rafael",
+                "San Isidro",
+                "Belen",
+                "Flores",
+                "San Pablo",
+                "Sarapiqui"
+            }
+        },
+        {"Guanacaste",new List<string>
+            {
+                "Liberia",
+                "Nicoya",
+                "Santa Cruz",
+                "Bagaces",
+                "Carrillo",
+                "Cañas",
+                "Abangares",
+                "Tilaran",
+                "Nandayure",
+                "La Cruz",
+                "Hojancha"
+            }
+        },
+        {"Puntarenas",new List<string>
+            {
+                "Puntarenas",
+                "Esparza",
+                "Buenos Aires",
+                "Montes de Oro",
+                "Osa",
+                "Aguirre",
+                "Golfito",
+                "Coto Brus",
+                "Parrita",
+                "Corredores"
+            }
+        },
+        {"Limon",new List<string>
+            {
+                "Limon",
+                "Pococi",
+                "Siquirres",
+                "Talamanca",
+                "Matina",
+                "Guacimo"
+            }
+        }
+    };
+    string provinciaS = "San Jose";
+}
+@{
+    List<string> GetOptionsForSelect2(string selectedValue)
+    {
+        // Aquí obtienes las opciones para el segundo select basado en el valor seleccionado en el primer select
+        // Por ejemplo, desde una base de datos
+        // Debes retornar una lista de objetos SelectListItem
+        // Asegúrate de llenar las opciones apropiadas basadas en el valor de selectedValue
+        List<string> opciones = diccCantones[selectedValue];
+        {
+            return opciones;
+            // Agrega más opciones según tus necesidades
+    };
+    }
+}
+@section Scripts{
+    <script src="~/js/MentorSAMA/FormularioMentor.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 }
 
 <!DOCTYPE html>
@@ -19,14 +164,19 @@
         <div class="row mt-4 justify-content-center">
             <label for="nombre" class="col-sm-2 col-form-label text-center">Nombre completo:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value="@Model.CurrentUser.PersonName">
+                @foreach (var person in Model.MentorList)
+                {
+                    <input type="text" readonly class="form-control-plaintext text-center" id="nombre" value=@person.PersonName>
+                }
             </div>
         </div>
         <div class="row mt-2 justify-content-center">
             <label for="carrera" class="col-sm-2 col-form-label text-center">Carrera:</label>
             <div class="col-sm-6">
-                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value="@Model.CurrentUser.DegreeName">
-            </div>
+                @foreach(var person in Model.MentorList){
+                <input type="text" readonly class="form-control-plaintext text-center" id="carrera" value=@person.DegreeName>
+                }
+                </div>
         </div>
         <div class="row mt-2 mb-4 justify-content-center">
             <label for="correo" class="col-sm-2 col-form-label text-center">Correo:</label>
@@ -135,7 +285,5 @@
             </div>
         </div>
     </div>
-
 </body>
-
 </html>

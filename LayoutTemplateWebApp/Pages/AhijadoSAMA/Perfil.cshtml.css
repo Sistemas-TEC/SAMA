@@ -1,0 +1,40 @@
+﻿.card {
+    position: absolute;
+    align-items: baseline;
+    margin-top: 45px;
+    margin-left: 404px;
+    background-color: var(--colorMainTrans);
+}
+.card-body{
+    margin-top: 32px;
+}
+.card.body.h5{
+    margin-top: 32px;
+}
+.card-info{
+    margin-bottom:60px;
+}
+.header {
+    position: relative;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+.textoMentor {
+    margin-left: 190px;
+}
+.contenedor {
+    display: inline-block;
+}
+
+.xy-center {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-container {
+    display: flex;
+    height: 100%;
+}
