@@ -17,18 +17,34 @@
 </head>
 <body>
     <div class="contenedor">
-        <div class="header">
-            <h1 class="Titulo">¡Bienvenido al sistema de Asignación Mentor-Ahijado!</h1>
+        <div class="header" with:auto height:auto>
+            <div class="Titulo">
+            <h1>¡Bienvenido al sistema de Asignación Mentor-Ahijado!</h1>
+            </div>
+            <div class="TextoMentor"> 
             <h6 class="textoMentor">Su mentor es:</h6>
+            </div>  
         </div>
         <div class="card" style="width: 304px; height:524px;">
             <div class="card-body">
+                <div class = "card-info">
                 <h5 class="card-title">Nombre </h5>
+                </div>
+                <div class="card-info">
                 <h5> @HttpContext.Session.GetString("name")@HttpContext.Session.GetString("LastName")@HttpContext.Session.GetString("LastName2")</h5>
+                </div>
+                <div class="card-info">
                 <h5 class="card-title">Residencia</h5>
+                </div>
+                <div class="card-info">
                 <h5 class="card-title">Carrera</h5>
+                </div>
+                <div class="card-info">
                 <h5 class="card-title">Gustos</h5>
+                </div>
+                <div class="card-info">
                 <h5 class="card-title">Contacto</h5>
+                </div>
             </div>
         </div>
     </div>

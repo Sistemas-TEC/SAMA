@@ -1,7 +1,7 @@
 ﻿.card {
     position: absolute;
     align-items: baseline;
-    margin-top: 95px;
+    margin-top: 45px;
     margin-left: 404px;
     background-color: var(--colorMainTrans);
 }
@@ -12,16 +12,18 @@
     margin-top: 32px;
 }
 .card-info{
+    margin-bottom:60px;
 }
-.header{
-   position: absolute;
-   align-items: center;
+.header {
+    position: relative;
+    margin-left: 300px;
+    margin-top: 50px;
 }
-.body{
+.textoMentor {
+    margin-left: 190px;
 }
 .contenedor {
     display: inline-block;
-    
 }
 
 .xy-center {
